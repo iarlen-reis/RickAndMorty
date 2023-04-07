@@ -1,12 +1,12 @@
 import React from "react";
-import { AboutContainerStyled } from "./styles";
+
+import { ContainerStyled } from "../../styles/Global";
 
 function About() {
   return (
-    <AboutContainerStyled>
+    <ContainerStyled>
       <h1>Página About</h1>
-      <p>Eu sou a página de about</p>
-    </AboutContainerStyled>
+    </ContainerStyled>
   );
 }
 
