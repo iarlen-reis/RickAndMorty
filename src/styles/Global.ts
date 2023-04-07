@@ -11,4 +11,20 @@ export default createGlobalStyle`
         font-size: 62.5%;
     }
 
+    a {
+        text-decoration: none;
+    }
+
+    .active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.6rem;
+
+        font-weight: bold;
+
+        color: ${({ theme }) => theme.colors.white};
+        background: ${({ theme }) => theme.colors.primary};
+    }
+
 `;

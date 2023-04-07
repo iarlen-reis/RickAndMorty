@@ -24,5 +24,9 @@ declare module 'styled-components' {
             regular: string,
             big: string,
         }
+        family: {
+            itim: string,
+            poppins: string,
+        }
     }
 }

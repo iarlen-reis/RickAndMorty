@@ -22,4 +22,8 @@ export const Theme: ITheme = {
     regular: "5px",
     big: "10px",
   },
+  family: {
+    itim: "Itim, cursive",
+    poppins: "Poppins, sans-serif",
+  },
 };

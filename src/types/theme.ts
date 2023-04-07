@@ -20,4 +20,8 @@ export interface ITheme {
     regular: string,
     big: string,
   };
+  family: {
+    itim: string,
+    poppins: string,
+  };
 }
