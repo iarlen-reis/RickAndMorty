@@ -45,6 +45,12 @@ export const DetailsStyled = styled.div`
 
   button {
     width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: ${({ theme }) => theme.gap.regular};
+
     padding: 1rem 1rem;
 
     font-size: ${({ theme }) => theme.font.regular};
@@ -55,11 +61,10 @@ export const DetailsStyled = styled.div`
     cursor: pointer;
     transition: 0.5s;
 
-    color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.white};
     background: ${({ theme }) => theme.colors.primary};
 
     &:hover {
-      color: ${({ theme }) => theme.colors.white};
       background: ${({ theme }) => theme.colors.tertiary};
     }
   }

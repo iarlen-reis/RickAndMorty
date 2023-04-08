@@ -1,5 +1,7 @@
 import React from "react";
 
+import { AiOutlineInfoCircle } from "react-icons/ai";
+
 import { CharacterStyled, DetailsStyled } from "./styles";
 
 const Character = () => {
@@ -11,7 +13,10 @@ const Character = () => {
       />
       <DetailsStyled>
         <h2>Rick Sanchez</h2>
-        <button>Detalhes</button>
+        <button>
+          <AiOutlineInfoCircle />
+          Detalhes
+        </button>
       </DetailsStyled>
     </CharacterStyled>
   );
