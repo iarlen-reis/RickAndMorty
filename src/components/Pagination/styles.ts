@@ -4,11 +4,12 @@ export const UlStyled = styled.ul`
   display: flex;
   width: 40rem;
 
-  margin: 0 auto;
   align-items: center;
   justify-content: space-between;
 
   padding: 1rem;
+  margin: 0 auto;
+  margin-bottom: 5rem;
 
   list-style: none;
   border-radius: 5px;

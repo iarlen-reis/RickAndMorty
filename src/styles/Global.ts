@@ -36,7 +36,7 @@ export default createGlobalStyle`
 export const ContainerStyled = styled.main`
   width: 100%;
   max-width: 1200px;
-  height: 90vh;
+  min-height: 100%;
 
   padding: 0 2rem;
   margin: 0 auto;

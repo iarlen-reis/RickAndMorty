@@ -11,4 +11,6 @@ export const CharacterContainer = styled.div`
   justify-content: center;
   gap: ${({ theme }) => theme.gap.big};
   flex-wrap: wrap;
+
+  margin-bottom: 5rem;
 `;
