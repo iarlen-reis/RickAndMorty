@@ -5,6 +5,8 @@ import { NavLink, Outlet } from "react-router-dom";
 import { VscGithub } from "react-icons/vsc";
 import { TbApi } from "react-icons/tb";
 
+import Logo from "/logo/logo.png";
+
 import {
   HeaderStyled,
   HeaderContainer,

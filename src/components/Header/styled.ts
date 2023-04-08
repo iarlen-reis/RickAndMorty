@@ -4,7 +4,8 @@ export const HeaderStyled = styled.header`
   width: 100%;
   height: 7rem;
 
-  background: ${({ theme }) => theme.colors.tertiary};
+  background: ${({ theme }) => theme.colors.quaternary};
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 `;
 
 export const HeaderContainer = styled.div`
@@ -18,6 +19,14 @@ export const HeaderContainer = styled.div`
 
   padding: 0 2rem;
   margin: 0 auto;
+
+  h1 {
+    font-family: ${({ theme }) => theme.family.itim};
+    font-size: ${({ theme }) => theme.font.superBig};
+
+    color: ${({ theme }) => theme.colors.white};
+    text-shadow: 1px 1px 5px ${({ theme }) => theme.colors.black};
+  }
 `;
 
 export const MenuContainer = styled.div`
@@ -45,7 +54,7 @@ export const NavStyled = styled.nav`
       font-size: ${({ theme }) => theme.font.superRegular};
       font-family: ${({ theme }) => theme.family.itim};
 
-      color: ${({ theme }) => theme.colors.tertiary};
+      color: ${({ theme }) => theme.colors.white};
 
       a {
         color: ${({ theme }) => theme.colors.white};

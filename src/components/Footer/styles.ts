@@ -4,7 +4,7 @@ export const FooterStyled = styled.footer`
   width: 100%;
   height: 10rem;
 
-  background: ${({ theme }) => theme.colors.tertiary};
+  background: ${({ theme }) => theme.colors.quaternary};
 `;
 
 export const FooterContainer = styled.div`

@@ -29,7 +29,7 @@ export default createGlobalStyle`
         font-weight: bold;
 
         color: ${({ theme }) => theme.colors.white};
-        background: ${({ theme }) => theme.colors.primary};
+        background: #111;
     }
 `;
 

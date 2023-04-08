@@ -2,10 +2,10 @@ import { ITheme } from "../../types/theme";
 
 export const Theme: ITheme = {
   colors: {
-    primary: "#00FF7F",
-    secundary: "#00FF7F",
-    tertiary: "#2F4F4F",
-    quaternary: "#483D8B",
+    primary: "#2ECC71",
+    secundary: "#0E6251",
+    tertiary: "#7B7D7D",
+    quaternary: "rgba(255, 255, 255, 0.1)",
     white: "#FFF",
     black: "#000",
   },
