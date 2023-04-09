@@ -4,15 +4,20 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 
 import { CharacterStyled, DetailsStyled } from "./styles";
 
-const Character = () => {
+interface ICharacterProps {
+  results: {
+    id: number,
+    image: string,
+    name: string,
+  };
+}
+
+const Character = (props: ICharacterProps) => {
   return (
     <CharacterStyled>
-      <img
-        src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-        alt=""
-      />
+      <img src={props.results.image} alt={props.results.name} />
       <DetailsStyled>
-        <h2>Rick Sanchez</h2>
+        <h2>{props.results.name}</h2>
         <button>
           <AiOutlineInfoCircle />
           Detalhes

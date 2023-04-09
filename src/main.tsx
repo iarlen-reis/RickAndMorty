@@ -9,11 +9,15 @@ import { ThemeProvider } from 'styled-components'
 
 import { router } from './routes/routes'
 
+import { CharactersProvider } from './contexts/CharacterContext'
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider theme={Theme}>
-      <GlboalStyled />
-      <RouterProvider router={router} />
-    </ThemeProvider>
+      <CharactersProvider>
+        <ThemeProvider theme={Theme}>
+            <GlboalStyled />
+            <RouterProvider router={router} />
+        </ThemeProvider>
+      </CharactersProvider>
   </React.StrictMode>
 )
