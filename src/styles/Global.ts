@@ -28,8 +28,10 @@ export default createGlobalStyle`
 
         font-weight: bold;
 
+        border-radius: 4px;
+
         color: ${({ theme }) => theme.colors.white};
-        background: #111;
+        background: ${({ theme }) => theme.colors.secundary};
     }
 `;
 
