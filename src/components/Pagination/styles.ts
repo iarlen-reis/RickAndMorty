@@ -26,6 +26,14 @@ export const UlStyled = styled.ul`
 
     font-size: 1.8rem;
   }
+
+  @media (max-width: 470px) {
+    width: 30rem;
+  }
+
+  @media (max-width: 350px) {
+    width: 25rem;
+  }
 `;
 
 interface ILiProps {
@@ -77,6 +85,8 @@ export const LiStyled =
   }
 `;
 
-export const PrevAndNextStyled = styled.li`
+export const PrevAndNextStyled = styled.button`
+  background: transparent;
+  border: none;
   cursor: pointer;
 `;

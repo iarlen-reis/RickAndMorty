@@ -6,7 +6,7 @@ import { UlStyled, LiStyled, PrevAndNextStyled } from "./styles";
 
 const Pagination = () => {
   const [current, setCurrent] = useState(1);
-  const pagesShow = 7;
+  const [pagesShow] = useState(3);
 
   const totalPages = Math.ceil(15); // data.pages
   const startPages = Math.max(1, current - Math.floor(pagesShow / 2));

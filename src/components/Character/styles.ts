@@ -22,8 +22,8 @@ export const CharacterStyled = styled.div`
     width: 40%;
   }
 
-  @media (max-width: 440px) {
-    width: 90%;
+  @media (max-width: 540px) {
+    width: 80%;
   }
 `;
 

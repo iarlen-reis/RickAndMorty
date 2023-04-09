@@ -20,7 +20,7 @@ const Home = () => {
           <Character />
         </CharacterContainer>
       </HomeStyled>
-      {/* <Pagination /> */}
+      <Pagination />
     </ContainerStyled>
   );
 };
