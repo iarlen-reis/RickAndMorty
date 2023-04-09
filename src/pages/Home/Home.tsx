@@ -6,6 +6,7 @@ import { HomeStyled, CharacterContainer } from "./styles";
 
 import Pagination from "../../components/Pagination/Pagination";
 import Character from "../../components/Character/Character";
+import Loading from "../../components/Loading/Loading";
 
 import { useCharacterContext } from "../../contexts/CharacterContext";
 
@@ -17,7 +18,7 @@ const Home = () => {
   }, []);
 
   if (loading) {
-    return <p>carregando...</p>;
+    return <Loading />;
   }
 
   return (

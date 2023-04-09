@@ -54,7 +54,7 @@ export const CharactersProvider = ({ children }: IChildren) => {
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(true);
+      setLoading(false);
     }
   };
 
