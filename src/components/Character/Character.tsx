@@ -13,11 +13,17 @@ interface ICharacterProps {
 }
 
 const Character = (props: ICharacterProps) => {
+  const addEllipsis = (text: string) => {
+    if (text.length <= 16) return text;
+
+    return text.substring(0, 16) + "...";
+  };
+
   return (
     <CharacterStyled>
       <img src={props.results.image} alt={props.results.name} />
       <DetailsStyled>
-        <h2>{props.results.name}</h2>
+        <h2>{addEllipsis(props.results.name)}</h2>
         <button>
           <AiOutlineInfoCircle />
           Detalhes

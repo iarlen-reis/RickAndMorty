@@ -25,6 +25,10 @@ export const CharacterStyled = styled.div`
   @media (max-width: 540px) {
     width: 80%;
   }
+
+  @media (max-width: 320px) {
+    width: 90%;
+  }
 `;
 
 export const DetailsStyled = styled.div`
@@ -33,14 +37,20 @@ export const DetailsStyled = styled.div`
   align-items: center;
   justify-content: center;
 
-  gap: ${({ theme }) => theme.gap.regular};
+  gap: ${({ theme }) => theme.gap.big};
 
   h2 {
-    font-size: ${({ theme }) => theme.font.superBig};
+    text-align: center;
+    font-size: ${({ theme }) => theme.font.big};
     font-family: ${({ theme }) => theme.family.itim};
 
+    padding: 0.4rem 1rem;
+
+    border-radius: 4px;
     text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.primary};
-    color: ${({ theme }) => theme.colors.black};
+
+    color: ${({ theme }) => theme.colors.white};
+    background: ${({ theme }) => theme.colors.secundary};
   }
 
   button {
@@ -76,6 +86,12 @@ export const DetailsStyled = styled.div`
 
     button {
       font-size: ${({ theme }) => theme.font.small};
+    }
+  }
+
+  @media (max-width: 320px) {
+    h2 {
+      font-size: 1.8rem;
     }
   }
 `;
