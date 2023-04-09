@@ -1,6 +1,17 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+export const MenuAnimation = keyframes`
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 0;
+    }
+`;
 
 export const HeaderStyled = styled.header`
+  position: relative;
   width: 100%;
   height: 7rem;
 
@@ -29,7 +40,14 @@ export const HeaderContainer = styled.div`
   }
 `;
 
-export const MenuContainer = styled.div`
+interface IMenuMobile {
+  mobile: boolean;
+}
+
+export const MenuContainer =
+  styled.div <
+  IMenuMobile >
+  `
   max-width: 70rem;
   width: 100%;
   height: 100%;
@@ -37,6 +55,24 @@ export const MenuContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 540px) {
+    height: 100vh;
+    position: absolute;
+
+    flex-direction: column;
+    justify-content: center;
+
+    display: ${(props) => (props.mobile ? "flex" : "none")};
+    gap: ${({ theme }) => theme.gap.big};
+
+    top: 7rem;
+    left: 0;
+    right: 0;
+
+    animation: ${MenuAnimation} 1.7s ease-out;
+    background: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 export const NavStyled = styled.nav`
@@ -65,5 +101,25 @@ export const NavStyled = styled.nav`
         }
       }
     }
+  }
+
+  @media (max-width: 540px) {
+    :first-child ul {
+      flex-direction: column;
+      gap: ${({ theme }) => theme.gap.big};
+    }
+  }
+`;
+
+export const MenuMobileStyled = styled.div`
+  display: none;
+
+  svg {
+    font-size: 3rem;
+    color: ${({ theme }) => theme.colors.white};
+  }
+
+  @media (max-width: 540px) {
+    display: flex;
   }
 `;

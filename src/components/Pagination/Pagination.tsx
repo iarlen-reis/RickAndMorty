@@ -8,7 +8,7 @@ const Pagination = () => {
   const [current, setCurrent] = useState(1);
   const pagesShow = 7;
 
-  const totalPages = Math.ceil(20); // data.pages
+  const totalPages = Math.ceil(15); // data.pages
   const startPages = Math.max(1, current - Math.floor(pagesShow / 2));
   const endPages = Math.min(totalPages, startPages + pagesShow + 1);
 
