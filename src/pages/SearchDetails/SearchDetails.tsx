@@ -34,7 +34,7 @@ const SearchDetails = () => {
           <h1>
             {error
               ? "Nenhum personagem encontrado."
-              : `Resultados encontrados: ${term}`}
+              : `Resultados para: ${term}`}
           </h1>
         </InfoContainer>
         <CharacterContainer>

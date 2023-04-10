@@ -7,7 +7,6 @@ export const SearchDetailsStyled = styled.div`
 
 export const InfoContainer = styled.div`
   text-align: center;
-  font-size: ${({ theme }) => theme.font.regular};
   font-family: ${({ theme }) => theme.family.itim};
 
   margin-top: 1rem;
@@ -15,8 +14,15 @@ export const InfoContainer = styled.div`
   h1 {
     padding: 0.7rem;
 
+    font-size: ${({ theme }) => theme.font.big};
     color: ${({ theme }) => theme.colors.white};
     background: ${({ theme }) => theme.colors.secundary};
+  }
+
+  @media (max-width: 550px) {
+    h1 {
+      font-size: ${({ theme }) => theme.font.regular};
+    }
   }
 `;
 
