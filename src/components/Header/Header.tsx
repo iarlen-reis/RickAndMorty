@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, Link } from "react-router-dom";
 
 import { VscGithub } from "react-icons/vsc";
 import { TbApi } from "react-icons/tb";
 
 import { RiMenu3Fill, RiCloseFill } from "react-icons/ri";
 
-import Logo from "/logo/logo.png";
+import Logo from "/logo/logo-2.png";
 
 import {
   HeaderStyled,
@@ -28,7 +28,9 @@ const Header = () => {
     <>
       <HeaderStyled>
         <HeaderContainer>
-          <h1>RickAndMorty</h1>
+          <Link to="/">
+            <img src={Logo} alt="Logo Rick and morty" />
+          </Link>
           <MenuContainer mobile={mobile}>
             <NavStyled>
               <ul>
