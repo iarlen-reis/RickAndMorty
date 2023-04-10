@@ -56,22 +56,6 @@ export const MenuContainer =
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 1050px) {
-  max-width: 55rem;
-  }
-
-  @media (max-width: 850px) {
-  max-width: 45rem;
-  }
-
-  @media (max-width: 740px) {
-  max-width: 35rem;
-  }
-
-  @media (max-width: 610px) {
-  max-width: 28rem;
-  }
-
   @media (max-width: 540px) {
     height: 100vh;
     position: absolute;
