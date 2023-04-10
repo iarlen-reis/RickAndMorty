@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const SearchDetailsStyled = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
 `;
 
 export const InfoContainer = styled.div`
   text-align: center;
   font-family: ${({ theme }) => theme.family.itim};
 
-  margin-top: 1rem;
+  margin-top: 2rem;
 
   h1 {
     padding: 0.7rem;

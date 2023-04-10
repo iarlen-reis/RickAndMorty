@@ -92,8 +92,12 @@ export const CharactersProvider = ({ children }: IChildren) => {
 
   const getCharactersSearch = async (search: string, page?: number) => {
     setLoadingSearch(true);
+    setError(initialState.error);
 
-    if (search) setCurrentPage(1);
+    if (search) {
+      setCurrentPage(1);
+      setSearchResults(initialState.searchResults);
+    }
 
     try {
       const data = await AxiosAPI.get(

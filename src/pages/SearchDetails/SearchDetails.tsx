@@ -51,11 +51,13 @@ const SearchDetails = () => {
               <Character results={result} key={result.id} />
             ))}
         </CharacterContainer>
-        <Pagination
-          pages={pagesSearch}
-          getCharacters={getCharacters}
-          getCharactersSearch={getCharactersSearch}
-        />
+        {!error && (
+          <Pagination
+            pages={pagesSearch}
+            getCharacters={getCharacters}
+            getCharactersSearch={getCharactersSearch}
+          />
+        )}
       </SearchDetailsStyled>
     </ContainerStyled>
   );
