@@ -70,6 +70,7 @@ export const CharactersProvider = ({ children }: IChildren) => {
 
       const response = await data.data;
 
+      window.scrollTo(0, 0);
       setCharacters(response.results);
       setPages(response.info);
     } catch (error) {
@@ -89,6 +90,7 @@ export const CharactersProvider = ({ children }: IChildren) => {
 
       const response = await data.data;
 
+      window.scrollTo(0, 0);
       setSearchResults(response.results);
       setPagesSearch(response.info);
     } catch (error) {
