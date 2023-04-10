@@ -23,13 +23,13 @@ const Pagination = ({
   getCharacters,
   getCharactersSearch,
 }: IPaginationProps) => {
-  const { term } = useCharacterContext();
+  const { term, currentPage, setCurrentPage } = useCharacterContext();
 
-  const [current, setCurrent] = useState(1);
+  //   const [current, setCurrent] = useState(1);
   const [pagesShow] = useState(Math.min(3, pages.pages));
 
   const totalPages = pages.pages;
-  const startPages = Math.max(1, current - Math.floor(pagesShow / 2));
+  const startPages = Math.max(1, currentPage - Math.floor(pagesShow / 2));
   const endPages = Math.min(totalPages, startPages + pagesShow + 1);
 
   const pageNumbers = [];
@@ -37,29 +37,40 @@ const Pagination = ({
     pageNumbers.push(i);
   }
 
+  //   function handlePageClick(page: number) {
+  //     setCurrent(page);
+  //     if (getCharactersSearch) {
+  //       getCharactersSearch(term, page);
+  //     } else {
+  //       getCharacters(page);
+  //     }
+  //   }
+
   function handlePageClick(page: number) {
-    setCurrent(page);
+    if (page === currentPage) return; // não atualizar o estado se já estiver na página atual
     if (getCharactersSearch) {
       getCharactersSearch(term, page);
     } else {
       getCharacters(page);
     }
+    setCurrentPage(page);
+    console.log(page);
   }
 
   return (
     <UlStyled>
-      {current !== 1 && (
-        <PrevAndNextStyled onClick={() => handlePageClick(current - 1)}>
+      {currentPage !== 1 && (
+        <PrevAndNextStyled onClick={() => handlePageClick(currentPage - 1)}>
           <AiOutlineLeft />
         </PrevAndNextStyled>
       )}
       {pageNumbers.map((page) => (
-        <LiStyled key={page} current={current === page}>
+        <LiStyled key={page} current={currentPage === page}>
           <button onClick={() => handlePageClick(page)}>{page}</button>
         </LiStyled>
       ))}
-      {current !== totalPages && (
-        <PrevAndNextStyled onClick={() => handlePageClick(current + 1)}>
+      {currentPage !== totalPages && (
+        <PrevAndNextStyled onClick={() => handlePageClick(currentPage + 1)}>
           <AiOutlineRight />
         </PrevAndNextStyled>
       )}

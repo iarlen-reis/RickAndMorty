@@ -36,6 +36,9 @@ const initialState = {
   },
   term: "",
   setTerm: () => ({}),
+  loadingSearch: true,
+  currentPage: 1,
+  setCurrentPage: () => ({}),
 };
 
 interface ICharactersContext {
@@ -49,6 +52,9 @@ interface ICharactersContext {
   pagesSearch: IPages;
   term: string;
   setTerm: (string: string) => void;
+  loadingSearch: boolean;
+  setCurrentPage: (page: number) => void;
+  currentPage: number;
 }
 
 export const CharacterContext = createContext<ICharactersContext>(initialState);
@@ -63,14 +69,18 @@ export const CharactersProvider = ({ children }: IChildren) => {
   const [error, setError] = useState(initialState.error);
   const [pagesSearch, setPagesSearch] = useState(initialState.pagesSearch);
   const [term, setTerm] = useState(initialState.term);
+  const [loadingSearch, setLoadingSearch] = useState(
+    initialState.loadingSearch,
+  );
+  const [currentPage, setCurrentPage] = useState(initialState.currentPage);
 
   const getCharacters = async (page?: number) => {
+    setLoading(true);
     try {
       const data = await AxiosAPI.get(`${page ? `?page=${page}` : "/"}`);
 
       const response = await data.data;
 
-      window.scrollTo(0, 0);
       setCharacters(response.results);
       setPages(response.info);
     } catch (error) {
@@ -78,11 +88,13 @@ export const CharactersProvider = ({ children }: IChildren) => {
     } finally {
       setLoading(false);
     }
-
-    setLoading(false);
   };
 
   const getCharactersSearch = async (search: string, page?: number) => {
+    setLoadingSearch(true);
+
+    if (search) setCurrentPage(1);
+
     try {
       const data = await AxiosAPI.get(
         `${page ? `?page=${page}&name=${search}` : `?name=${search}`} `,
@@ -90,13 +102,12 @@ export const CharactersProvider = ({ children }: IChildren) => {
 
       const response = await data.data;
 
-      window.scrollTo(0, 0);
       setSearchResults(response.results);
       setPagesSearch(response.info);
     } catch (error) {
       setError(true);
     } finally {
-      setLoading(false);
+      setLoadingSearch(false);
     }
   };
 
@@ -113,6 +124,9 @@ export const CharactersProvider = ({ children }: IChildren) => {
         error,
         term,
         setTerm,
+        loadingSearch,
+        currentPage,
+        setCurrentPage,
       }}
     >
       {children}

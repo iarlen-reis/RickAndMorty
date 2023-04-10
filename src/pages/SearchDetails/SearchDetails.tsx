@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { ContainerStyled } from "../../styles/Global";
 
@@ -7,6 +7,8 @@ import {
   InfoContainer,
   CharacterContainer,
 } from "./styles";
+
+import { useNavigate } from "react-router-dom";
 
 import Character from "../../components/Character/Character";
 import Loading from "../../components/Loading/Loading";
@@ -18,14 +20,20 @@ const SearchDetails = () => {
   const {
     searchResults,
     error,
-    loading,
+    loadingSearch,
     pagesSearch,
     getCharacters,
     getCharactersSearch,
     term,
   } = useCharacterContext();
 
-  if (loading) return <Loading />;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (term === "") return navigate("/");
+  }, [term]);
+
+  if (loadingSearch) return <Loading />;
 
   return (
     <ContainerStyled>
