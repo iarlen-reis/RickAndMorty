@@ -32,17 +32,17 @@ const Header = () => {
           <MenuContainer mobile={mobile}>
             <NavStyled>
               <ul>
-                <li>
+                <li onClick={MenuMobile}>
                   <NavLink to="/">Home</NavLink>
                 </li>
-                <li>
+                <li onClick={MenuMobile}>
                   <NavLink to="/about">Sobre</NavLink>
                 </li>
               </ul>
             </NavStyled>
             <NavStyled>
               <ul>
-                <li>
+                <li onClick={MenuMobile}>
                   <a
                     href="https://github.com/iarlen-reis/RickAndMorty"
                     target="_blank"
@@ -51,7 +51,7 @@ const Header = () => {
                     <VscGithub size={30} />
                   </a>
                 </li>
-                <li>
+                <li onClick={MenuMobile}>
                   <a
                     href="https://rickandmortyapi.com/documentation/"
                     target="_blank"
