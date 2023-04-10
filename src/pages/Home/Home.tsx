@@ -7,6 +7,7 @@ import { HomeStyled, CharacterContainer } from "./styles";
 import Pagination from "../../components/Pagination/Pagination";
 import Character from "../../components/Character/Character";
 import Loading from "../../components/Loading/Loading";
+import Search from "../../components/Search/Search";
 
 import { useCharacterContext } from "../../contexts/CharacterContext";
 
@@ -24,8 +25,7 @@ const Home = () => {
   return (
     <ContainerStyled>
       <HomeStyled>
-        <h1>Página Home</h1>
-        <p>Olá! Eu sou a página principal!</p>
+        <Search />
         <CharacterContainer>
           {characters.map((character) => (
             <Character results={character} key={character.id} />
