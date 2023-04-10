@@ -56,8 +56,25 @@ export const MenuContainer =
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 540px) {
+  @media (max-width: 1040px) {
+    width: 60rem;
+  }
+
+  @media (max-width: 920px) {
+    width: 50rem;
+  }
+
+  @media (max-width: 840px) {
+    width: 40rem;
+  }
+
+  @media (max-width: 700px) {
+    width: 35rem;
+  }
+
+  @media (max-width: 680px) {
     height: 100vh;
+    width: 100%;
     position: absolute;
 
     flex-direction: column;
@@ -103,7 +120,7 @@ export const NavStyled = styled.nav`
     }
   }
 
-  @media (max-width: 540px) {
+  @media (max-width: 680px) {
     :first-child ul {
       flex-direction: column;
       gap: ${({ theme }) => theme.gap.big};
@@ -119,7 +136,7 @@ export const MenuMobileStyled = styled.div`
     color: ${({ theme }) => theme.colors.white};
   }
 
-  @media (max-width: 540px) {
+  @media (max-width: 680px) {
     display: flex;
   }
 `;
