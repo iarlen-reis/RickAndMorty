@@ -30,7 +30,7 @@ const Search = () => {
         onChange={({ target }) => setSearch(target.value)}
         value={search}
       />
-      <ButtonStyled type="submit" onClick={handleSearch}>
+      <ButtonStyled search={search.length} type="submit" onClick={handleSearch}>
         <BsSearch />
       </ButtonStyled>
     </FormStyled>

@@ -30,7 +30,13 @@ export const InputStyled = styled.input`
   }
 `;
 
-export const ButtonStyled = styled.button`
+interface IButtonProps {
+  search: number;
+}
+export const ButtonStyled =
+  styled.button <
+  IButtonProps >
+  `
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,7 +46,7 @@ export const ButtonStyled = styled.button`
   border: none;
   border-radius: 4px;
 
-  cursor: pointer;
+  cursor: ${(props) => (Number(props.search) > 0 ? "pointer" : "not-allowed")};
 
   transition: 0.5s;
   background: ${({ theme }) => theme.colors.quaternary};
@@ -50,10 +56,10 @@ export const ButtonStyled = styled.button`
   }
 
   &:hover {
-    background: ${({ theme }) => theme.colors.white};
+    background: ${(props) => props.search > 0 && props.theme.colors.white};
 
     svg {
-      color: ${({ theme }) => theme.colors.black};
+      color: ${(props) => props.search > 0 && props.theme.colors.black};
     }
   }
 `;
