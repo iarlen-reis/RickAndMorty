@@ -26,6 +26,16 @@ const initialState = {
     next: "",
     prev: "",
   },
+  getCharactersSearch: () => ({}),
+  searchResults: [],
+  error: false,
+  pagesSearch: {
+    pages: 1,
+    next: "",
+    prev: "",
+  },
+  term: "",
+  setTerm: () => ({}),
 };
 
 interface ICharactersContext {
@@ -33,6 +43,12 @@ interface ICharactersContext {
   getCharacters: (page?: number) => void;
   loading: boolean;
   pages: IPages;
+  getCharactersSearch: (search: string, page?: number) => void;
+  searchResults: ICharacters[];
+  error: boolean;
+  pagesSearch: IPages;
+  term: string;
+  setTerm: (string: string) => void;
 }
 
 export const CharacterContext = createContext<ICharactersContext>(initialState);
@@ -41,6 +57,12 @@ export const CharactersProvider = ({ children }: IChildren) => {
   const [characters, setCharacters] = useState(initialState.characters);
   const [loading, setLoading] = useState(initialState.loading);
   const [pages, setPages] = useState(initialState.pages);
+  const [searchResults, setSearchResults] = useState(
+    initialState.searchResults,
+  );
+  const [error, setError] = useState(initialState.error);
+  const [pagesSearch, setPagesSearch] = useState(initialState.pagesSearch);
+  const [term, setTerm] = useState(initialState.term);
 
   const getCharacters = async (page?: number) => {
     try {
@@ -50,9 +72,27 @@ export const CharactersProvider = ({ children }: IChildren) => {
 
       setCharacters(response.results);
       setPages(response.info);
-      window.scrollTo(0, 0);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
+    }
+
+    setLoading(false);
+  };
+
+  const getCharactersSearch = async (search: string, page?: number) => {
+    try {
+      const data = await AxiosAPI.get(
+        `${page ? `?page=${page}&name=${search}` : `?name=${search}`} `,
+      );
+
+      const response = await data.data;
+
+      setSearchResults(response.results);
+      setPagesSearch(response.info);
+    } catch (error) {
+      setError(true);
     } finally {
       setLoading(false);
     }
@@ -60,7 +100,18 @@ export const CharactersProvider = ({ children }: IChildren) => {
 
   return (
     <CharacterContext.Provider
-      value={{ characters, getCharacters, loading, pages }}
+      value={{
+        characters,
+        getCharacters,
+        loading,
+        pages,
+        getCharactersSearch,
+        searchResults,
+        pagesSearch,
+        error,
+        term,
+        setTerm,
+      }}
     >
       {children}
     </CharacterContext.Provider>

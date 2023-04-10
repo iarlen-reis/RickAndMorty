@@ -12,7 +12,7 @@ import Search from "../../components/Search/Search";
 import { useCharacterContext } from "../../contexts/CharacterContext";
 
 const Home = () => {
-  const { getCharacters, loading, characters } = useCharacterContext();
+  const { getCharacters, loading, characters, pages } = useCharacterContext();
 
   useEffect(() => {
     getCharacters();
@@ -32,7 +32,7 @@ const Home = () => {
           ))}
         </CharacterContainer>
       </HomeStyled>
-      <Pagination />
+      <Pagination pages={pages} getCharacters={getCharacters} />
     </ContainerStyled>
   );
 };

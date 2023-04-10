@@ -6,13 +6,29 @@ import { UlStyled, LiStyled, PrevAndNextStyled } from "./styles";
 
 import { useCharacterContext } from "../../contexts/CharacterContext";
 
-const Pagination = () => {
-  const { pages, getCharacters } = useCharacterContext();
+interface IPages {
+  pages: number;
+  next: string | null;
+  prev: string | null;
+}
+
+interface IPaginationProps {
+  pages: IPages;
+  getCharacters: (page: number) => void;
+  getCharactersSearch?: (search: string, page: number) => void;
+}
+
+const Pagination = ({
+  pages,
+  getCharacters,
+  getCharactersSearch,
+}: IPaginationProps) => {
+  const { term } = useCharacterContext();
 
   const [current, setCurrent] = useState(1);
-  const [pagesShow] = useState(3);
+  const [pagesShow] = useState(Math.min(3, pages.pages));
 
-  const totalPages = Math.ceil(pages.pages);
+  const totalPages = pages.pages;
   const startPages = Math.max(1, current - Math.floor(pagesShow / 2));
   const endPages = Math.min(totalPages, startPages + pagesShow + 1);
 
@@ -23,7 +39,11 @@ const Pagination = () => {
 
   function handlePageClick(page: number) {
     setCurrent(page);
-    getCharacters(page);
+    if (getCharactersSearch) {
+      getCharactersSearch(term, page);
+    } else {
+      getCharacters(page);
+    }
   }
 
   return (
