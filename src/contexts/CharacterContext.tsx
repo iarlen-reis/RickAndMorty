@@ -17,6 +17,18 @@ interface IPages {
   prev: string | null;
 }
 
+interface ICharacter {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+  gender: string;
+  origin: {
+    name: string,
+  };
+  image: string;
+}
+
 const initialState = {
   characters: [],
   getCharacters: () => ({}),
@@ -39,6 +51,19 @@ const initialState = {
   loadingSearch: true,
   currentPage: 1,
   setCurrentPage: () => ({}),
+  character: {
+    id: 0,
+    name: "",
+    status: "",
+    species: "",
+    gender: "",
+    origin: {
+      name: "",
+    },
+    image: "",
+  },
+  getCharacter: () => ({}),
+  characterLoading: false,
 };
 
 interface ICharactersContext {
@@ -55,6 +80,9 @@ interface ICharactersContext {
   loadingSearch: boolean;
   setCurrentPage: (page: number) => void;
   currentPage: number;
+  character: ICharacter;
+  getCharacter: (id: number) => void;
+  characterLoading: boolean;
 }
 
 export const CharacterContext = createContext<ICharactersContext>(initialState);
@@ -73,6 +101,11 @@ export const CharactersProvider = ({ children }: IChildren) => {
     initialState.loadingSearch,
   );
   const [currentPage, setCurrentPage] = useState(initialState.currentPage);
+
+  const [character, setCharacter] = useState(initialState.character);
+  const [characterLoading, setCharacterLoading] = useState(
+    initialState.characterLoading,
+  );
 
   const getCharacters = async (page?: number) => {
     setLoading(true);
@@ -115,6 +148,21 @@ export const CharactersProvider = ({ children }: IChildren) => {
     }
   };
 
+  const getCharacter = async (id: number) => {
+    setCharacterLoading(true);
+    try {
+      const data = await AxiosAPI.get(`/${id}`);
+
+      const response = await data.data;
+
+      setCharacter(response);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setCharacterLoading(false);
+    }
+  };
+
   return (
     <CharacterContext.Provider
       value={{
@@ -131,6 +179,9 @@ export const CharactersProvider = ({ children }: IChildren) => {
         loadingSearch,
         currentPage,
         setCurrentPage,
+        character,
+        getCharacter,
+        characterLoading,
       }}
     >
       {children}
