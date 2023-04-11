@@ -12,12 +12,10 @@ import Search from "../../components/Search/Search";
 import { useCharacterContext } from "../../contexts/CharacterContext";
 
 const Home = () => {
-  const { getCharacters, loading, characters, pages, setCurrentPage } =
-    useCharacterContext();
+  const { getCharacters, loading, characters, pages } = useCharacterContext();
 
   useEffect(() => {
     getCharacters();
-    setCurrentPage(1);
   }, []);
 
   if (loading) {

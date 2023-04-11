@@ -38,7 +38,7 @@ const CharacterDetails = () => {
               Status: <span>{character.status}</span>
             </li>
             <li>
-              Specie: <span>{character.species}</span>
+              Specie: <span>{getFristName(character.species)}</span>
             </li>
           </ul>
           <ul>

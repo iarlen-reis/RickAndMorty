@@ -25,7 +25,6 @@ const Pagination = ({
 }: IPaginationProps) => {
   const { term, currentPage, setCurrentPage } = useCharacterContext();
 
-  //   const [current, setCurrent] = useState(1);
   const [pagesShow] = useState(Math.min(3, pages.pages));
 
   const totalPages = pages.pages;
@@ -37,24 +36,14 @@ const Pagination = ({
     pageNumbers.push(i);
   }
 
-  //   function handlePageClick(page: number) {
-  //     setCurrent(page);
-  //     if (getCharactersSearch) {
-  //       getCharactersSearch(term, page);
-  //     } else {
-  //       getCharacters(page);
-  //     }
-  //   }
-
   function handlePageClick(page: number) {
-    if (page === currentPage) return; // não atualizar o estado se já estiver na página atual
+    if (page === currentPage) return;
     if (getCharactersSearch) {
       getCharactersSearch(term, page);
     } else {
       getCharacters(page);
     }
     setCurrentPage(page);
-    console.log(page);
   }
 
   return (

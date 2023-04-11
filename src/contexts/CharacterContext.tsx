@@ -110,7 +110,9 @@ export const CharactersProvider = ({ children }: IChildren) => {
   const getCharacters = async (page?: number) => {
     setLoading(true);
     try {
-      const data = await AxiosAPI.get(`${page ? `?page=${page}` : "/"}`);
+      const data = await AxiosAPI.get(
+        `${page ? `?page=${page}` : `?page=${currentPage}`}`,
+      );
 
       const response = await data.data;
 
