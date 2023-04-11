@@ -4,6 +4,8 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 
 import { CharacterStyled, DetailsStyled } from "./styles";
 
+import { addEllipsis } from "../../utils/addElipsis";
+
 interface ICharacterProps {
   results: {
     id: number,
@@ -14,12 +16,6 @@ interface ICharacterProps {
 
 const Character = (props: ICharacterProps) => {
   const navigate = useNavigate();
-
-  const addEllipsis = (text: string) => {
-    if (text.length <= 16) return text;
-
-    return text.substring(0, 16) + "...";
-  };
 
   const handleCharacter = () => {
     navigate(`/character/${props.results.id}`);

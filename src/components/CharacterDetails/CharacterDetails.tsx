@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import { ContainerStyled } from "../../styles/Global";
+import Loading from "../Loading/Loading";
 
 import { useParams } from "react-router-dom";
 
@@ -12,16 +13,13 @@ import {
 } from "./styles";
 
 import { useCharacterContext } from "../../contexts/CharacterContext";
-import Loading from "../Loading/Loading";
+
+import { getFristName } from "../../utils/getFristName";
 
 const CharacterDetails = () => {
   const { id } = useParams();
 
   const { getCharacter, character, characterLoading } = useCharacterContext();
-
-  const getFristName = (text: string) => {
-    return text.split(" ")[0];
-  };
 
   useEffect(() => {
     if (id) getCharacter(Number(id));
