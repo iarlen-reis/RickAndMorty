@@ -72,11 +72,9 @@ export const CharactersProvider = ({ children }: IChildren) => {
   const getCharacter = async (id: number) => {
     setLoading(true);
     try {
-      const data = await AxiosAPI.get(`/${id}`);
+      const data = (await AxiosAPI.get(`/${id}`)).data;
 
-      const response = await data.data;
-
-      setCharacter(response);
+      setCharacter(data);
     } catch (error) {
       console.log(error);
     } finally {
