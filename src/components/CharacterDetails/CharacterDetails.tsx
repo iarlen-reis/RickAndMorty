@@ -27,8 +27,6 @@ const CharacterDetails = () => {
 
   if (characterLoading) return <Loading />;
 
-  if (!character) return;
-
   return (
     <ContainerStyled>
       <CharacterDetailsStyled>
