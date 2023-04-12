@@ -15,7 +15,9 @@ const Home = () => {
   const { getCharacters, loading, characters, pages } = useCharacterContext();
 
   useEffect(() => {
-    getCharacters();
+    if (!characters) {
+      getCharacters();
+    }
   }, []);
 
   if (loading) {
