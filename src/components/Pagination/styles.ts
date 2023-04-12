@@ -1,7 +1,16 @@
 import styled from "styled-components";
 
-export const UlStyled = styled.ul`
-  display: flex;
+interface IPages {
+  pages: {
+    pages: number,
+  };
+}
+
+export const UlStyled =
+  styled.ul <
+  IPages >
+  `
+  display: ${(props) => (props.pages.pages <= 1 ? "none" : "flex")};
   width: 40rem;
 
   align-items: center;

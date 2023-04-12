@@ -37,7 +37,7 @@ const Pagination = ({
   }
 
   return (
-    <UlStyled>
+    <UlStyled pages={pages}>
       {currentPage !== 1 && (
         <PrevAndNextStyled onClick={() => handlePageClick(currentPage - 1)}>
           <AiOutlineLeft />
