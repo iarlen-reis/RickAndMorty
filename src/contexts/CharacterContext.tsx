@@ -50,7 +50,6 @@ export const CharactersProvider = ({ children }: IChildren) => {
     setError(initialState.error);
 
     if (search) {
-      setCurrentPage(1);
       setSearchResults(initialState.searchResults);
     }
 

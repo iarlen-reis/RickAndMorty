@@ -25,12 +25,14 @@ const SearchDetails = () => {
     getCharacters,
     getCharactersSearch,
     term,
+    setCurrentPage,
   } = useCharacterContext();
 
   const navigate = useNavigate();
-
   useEffect(() => {
     if (term === "") return navigate("/");
+
+    setCurrentPage(1);
   }, [term]);
 
   if (loading) return <Loading />;

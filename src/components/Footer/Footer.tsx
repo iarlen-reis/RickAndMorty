@@ -17,12 +17,18 @@ const Footer = () => {
         <InfoContainer>
           <UlStyled>
             <li>
-              <Link to="#" target="_blank">
+              <Link
+                to="https://github.com/iarlen-reis/RickAndMorty"
+                target="_blank"
+              >
                 Github
               </Link>
             </li>
             <li>
-              <Link to="#" target="_blank">
+              <Link
+                to="https://rickandmortyapi.com/documentation/"
+                target="_blank"
+              >
                 API
               </Link>
             </li>
@@ -31,7 +37,7 @@ const Footer = () => {
         <DevelopedBy>
           <p>
             Feito por{" "}
-            <Link to="#" target="_blank">
+            <Link to="https://github.com/iarlen-reis" target="_blank">
               Iarlen Reis
             </Link>
             .
