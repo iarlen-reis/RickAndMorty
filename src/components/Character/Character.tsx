@@ -6,20 +6,13 @@ import { CharacterStyled, DetailsStyled } from "./styles";
 
 import { addEllipsis } from "../../utils/addElipsis";
 
-interface ICharacterProps {
-  results: {
-    id: number,
-    image: string,
-    name: string,
-  };
-}
+import { ICharacterProps } from "../../types/Characters";
 
 const Character = (props: ICharacterProps) => {
   const navigate = useNavigate();
 
   const handleCharacter = () => {
     navigate(`/character/${props.results.id}`);
-    window.scrollTo(0, 0);
   };
 
   return (

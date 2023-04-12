@@ -28,6 +28,14 @@ export interface ICharacter {
   image: string;
 }
 
+export interface ICharacterProps {
+  results: {
+    id: number;
+    image: string;
+    name: string;
+  };
+}
+
 export interface ICharactersContext {
   characters: ICharacters[];
   getCharacters: (page?: number) => void;
@@ -51,7 +59,6 @@ export const initialState = {
   characters: [],
   getCharacters: () => ({}),
   loading: true,
-  // eslint-disable-next-line prettier/prettier
   pages: [] as unknown as IPages,
   getCharactersSearch: () => ({}),
   searchResults: [],

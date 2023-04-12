@@ -7,7 +7,7 @@ import { FormStyled, InputStyled, ButtonStyled } from "./styles";
 import { useCharacterContext } from "../../contexts/CharacterContext";
 
 const Search = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string>("");
   const { getCharactersSearch, setTerm } = useCharacterContext();
 
   const navigate = useNavigate();
