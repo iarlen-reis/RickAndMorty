@@ -89,7 +89,7 @@ export const MenuContainer =
     left: 0;
     right: 0;
 
-    animation: ${MenuAnimation} 1.7s ease-out;
+    animation: ${MenuAnimation} 1s ease-out;
     background: ${({ theme }) => theme.colors.primary};
   }
 `;
