@@ -17,6 +17,8 @@ const Search = () => {
 
     if (!search) return;
 
+    if (search == " ") return;
+
     setTerm(search);
     getCharactersSearch(search);
 

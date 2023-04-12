@@ -29,6 +29,7 @@ const SearchDetails = () => {
   } = useCharacterContext();
 
   const navigate = useNavigate();
+
   useEffect(() => {
     if (term === "") return navigate("/");
 

@@ -28,6 +28,7 @@ const Pagination = ({
 
   function handlePageClick(page: number) {
     if (page === currentPage) return;
+
     if (getCharactersSearch) {
       getCharactersSearch(term, page);
     } else {
