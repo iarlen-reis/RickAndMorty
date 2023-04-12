@@ -4,19 +4,9 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 import { UlStyled, LiStyled, PrevAndNextStyled } from "./styles";
 
+import { IPaginationProps } from "../../types/Pagination";
+
 import { useCharacterContext } from "../../contexts/CharacterContext";
-
-interface IPages {
-  pages: number;
-  next: string | null;
-  prev: string | null;
-}
-
-interface IPaginationProps {
-  pages: IPages;
-  getCharacters: (page: number) => void;
-  getCharactersSearch?: (search: string, page: number) => void;
-}
 
 const Pagination = ({
   pages,
