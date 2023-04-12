@@ -30,13 +30,15 @@ export const HeaderContainer = styled.div`
 
   padding: 0 2rem;
   margin: 0 auto;
+`;
 
-  h1 {
-    font-family: ${({ theme }) => theme.family.itim};
-    font-size: ${({ theme }) => theme.font.superBig};
+export const LogoStyled = styled.img`
+  @media (max-width: 405px) {
+    width: 160px;
+  }
 
-    color: ${({ theme }) => theme.colors.white};
-    text-shadow: 1px 1px 5px ${({ theme }) => theme.colors.black};
+  @media (max-width: 320px) {
+    width: 140px;
   }
 `;
 

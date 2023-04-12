@@ -6,6 +6,6 @@
     "singleQuote": false,
     "jsxSingleQuote": false,
     "trailingComma": "all",
-    "parser": "typescript",
+    "parser": "flow",
     "endOfLine": "auto"
   }

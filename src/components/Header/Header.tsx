@@ -12,6 +12,7 @@ import Logo from "/logo/logo-2.png";
 import {
   HeaderStyled,
   HeaderContainer,
+  LogoStyled,
   MenuContainer,
   NavStyled,
   MenuMobileStyled,
@@ -29,7 +30,7 @@ const Header = () => {
       <HeaderStyled>
         <HeaderContainer>
           <Link to="/">
-            <img src={Logo} alt="Logo Rick and morty" />
+            <LogoStyled src={Logo} alt="Logo Rick and morty" />
           </Link>
           <MenuContainer mobile={mobile}>
             <NavStyled>
