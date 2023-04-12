@@ -1,89 +1,12 @@
 import React, { createContext, useContext, useState } from "react";
+
+import {
+  IChildren,
+  initialState,
+  ICharactersContext,
+} from "../types/Characters";
+
 import { AxiosAPI } from "../services/api";
-
-interface IChildren {
-  children: React.ReactNode;
-}
-
-interface ICharacters {
-  id: number;
-  name: string;
-  image: string;
-}
-
-interface IPages {
-  pages: number;
-  next: string | null;
-  prev: string | null;
-}
-
-interface ICharacter {
-  id: number;
-  name: string;
-  status: string;
-  species: string;
-  gender: string;
-  origin: {
-    name: string,
-  };
-  image: string;
-}
-
-const initialState = {
-  characters: [],
-  getCharacters: () => ({}),
-  loading: true,
-  pages: {
-    pages: 1,
-    next: "",
-    prev: "",
-  },
-  getCharactersSearch: () => ({}),
-  searchResults: [],
-  error: false,
-  pagesSearch: {
-    pages: 1,
-    next: "",
-    prev: "",
-  },
-  term: "",
-  setTerm: () => ({}),
-  loadingSearch: true,
-  currentPage: 1,
-  setCurrentPage: () => ({}),
-  character: {
-    id: 0,
-    name: "",
-    status: "",
-    species: "",
-    gender: "",
-    origin: {
-      name: "",
-    },
-    image: "",
-  },
-  getCharacter: () => ({}),
-  characterLoading: false,
-};
-
-interface ICharactersContext {
-  characters: ICharacters[];
-  getCharacters: (page?: number) => void;
-  loading: boolean;
-  pages: IPages;
-  getCharactersSearch: (search: string, page?: number) => void;
-  searchResults: ICharacters[];
-  error: boolean;
-  pagesSearch: IPages;
-  term: string;
-  setTerm: (string: string) => void;
-  loadingSearch: boolean;
-  setCurrentPage: (page: number) => void;
-  currentPage: number;
-  character: ICharacter;
-  getCharacter: (id: number) => void;
-  characterLoading: boolean;
-}
 
 export const CharacterContext = createContext<ICharactersContext>(initialState);
 
