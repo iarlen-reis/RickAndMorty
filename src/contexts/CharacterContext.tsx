@@ -20,18 +20,13 @@ export const CharactersProvider = ({ children }: IChildren) => {
   const [error, setError] = useState(initialState.error);
   const [pagesSearch, setPagesSearch] = useState(initialState.pagesSearch);
   const [term, setTerm] = useState(initialState.term);
-  const [loadingSearch, setLoadingSearch] = useState(
-    initialState.loadingSearch,
-  );
   const [currentPage, setCurrentPage] = useState(initialState.currentPage);
 
   const [character, setCharacter] = useState(initialState.character);
-  const [characterLoading, setCharacterLoading] = useState(
-    initialState.characterLoading,
-  );
 
   const getCharacters = async (page?: number) => {
     setLoading(true);
+
     try {
       const data = await AxiosAPI.get(
         `${page ? `?page=${page}` : `?page=${currentPage}`}`,
@@ -49,7 +44,7 @@ export const CharactersProvider = ({ children }: IChildren) => {
   };
 
   const getCharactersSearch = async (search: string, page?: number) => {
-    setLoadingSearch(true);
+    setLoading(true);
     setError(initialState.error);
 
     if (search) {
@@ -69,12 +64,12 @@ export const CharactersProvider = ({ children }: IChildren) => {
     } catch (error) {
       setError(true);
     } finally {
-      setLoadingSearch(false);
+      setLoading(false);
     }
   };
 
   const getCharacter = async (id: number) => {
-    setCharacterLoading(true);
+    setLoading(true);
     try {
       const data = await AxiosAPI.get(`/${id}`);
 
@@ -84,7 +79,7 @@ export const CharactersProvider = ({ children }: IChildren) => {
     } catch (error) {
       console.log(error);
     } finally {
-      setCharacterLoading(false);
+      setLoading(false);
     }
   };
 
@@ -101,12 +96,10 @@ export const CharactersProvider = ({ children }: IChildren) => {
         error,
         term,
         setTerm,
-        loadingSearch,
         currentPage,
         setCurrentPage,
         character,
         getCharacter,
-        characterLoading,
       }}
     >
       {children}

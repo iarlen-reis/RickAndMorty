@@ -20,7 +20,7 @@ const SearchDetails = () => {
   const {
     searchResults,
     error,
-    loadingSearch,
+    loading,
     pagesSearch,
     getCharacters,
     getCharactersSearch,
@@ -33,7 +33,7 @@ const SearchDetails = () => {
     if (term === "") return navigate("/");
   }, [term]);
 
-  if (loadingSearch) return <Loading />;
+  if (loading) return <Loading />;
 
   return (
     <ContainerStyled>

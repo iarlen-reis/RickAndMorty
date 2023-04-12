@@ -19,13 +19,13 @@ import { getFristName } from "../../utils/getFristName";
 const CharacterDetails = () => {
   const { id } = useParams();
 
-  const { getCharacter, character, characterLoading } = useCharacterContext();
+  const { getCharacter, character, loading } = useCharacterContext();
 
   useEffect(() => {
     if (id) getCharacter(Number(id));
   }, [id]);
 
-  if (characterLoading) return <Loading />;
+  if (loading) return <Loading />;
 
   return (
     <ContainerStyled>

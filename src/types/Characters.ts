@@ -47,12 +47,10 @@ export interface ICharactersContext {
   pagesSearch: IPages;
   term: string;
   setTerm: (string: string) => void;
-  loadingSearch: boolean;
   setCurrentPage: (page: number) => void;
   currentPage: number;
   character: ICharacter;
   getCharacter: (id: number) => void;
-  characterLoading: boolean;
 }
 
 export const initialState = {
@@ -66,7 +64,6 @@ export const initialState = {
   pagesSearch: [] as unknown as IPages,
   term: "",
   setTerm: () => ({}),
-  loadingSearch: true,
   currentPage: 1,
   setCurrentPage: () => ({}),
   character: {
@@ -81,5 +78,4 @@ export const initialState = {
     image: "",
   },
   getCharacter: () => ({}),
-  characterLoading: false,
 };
