@@ -28,6 +28,8 @@ export const CharactersProvider = ({ children }: IChildren) => {
     setLoading(true);
 
     try {
+      if (characters.length > 0 && !page) return;
+
       const data = await AxiosAPI.get(
         `${page ? `?page=${page}` : `?page=${currentPage}`}`,
       );
